@@ -24,8 +24,8 @@ Install virtualenv:
 
 # Download pb-exercises requirements
 
-    $ git clone https://github.com/jimmysong/pb-exercises
-    $ cd pb-exercises
+    $ git clone https://github.com/BitcoinEdge/devplusplus
+    $ cd devplusplus
     $ virtualenv -p python3 .venv
 
 Linux/OSX:
