@@ -50,8 +50,8 @@ class Tx:
         tx_outs = []
         for _ in range(num_outputs):
             tx_outs.append(TxOut.parse(s))
-        sequence = little_endian_to_int(s.read(4))
-        return cls(version, tx_ins, tx_outs, sequence)
+        locktime = little_endian_to_int(s.read(4))
+        return cls(version, tx_ins, tx_outs, locktime)
 
     def serialize(self):
         '''Returns the byte serialization of the transaction'''
@@ -191,8 +191,8 @@ class TxIn:
         prev_index = little_endian_to_int(s.read(4))
         script_sig_length = s.read(1)[0]
         script_sig = s.read(script_sig_length)
-        locktime = little_endian_to_int(s.read(4))
-        return cls(prev_tx, prev_index, script_sig, locktime)
+        sequence = little_endian_to_int(s.read(4))
+        return cls(prev_tx, prev_index, script_sig, sequence)
 
     def serialize(self):
         '''Returns the byte serialization of the transaction input'''
